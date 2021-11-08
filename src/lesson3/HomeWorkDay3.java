@@ -66,7 +66,7 @@ public class HomeWorkDay3 {
             tryTime++;
 
         } while (tryTime < MAX_TRY_TIME);
-        System.out.println("Correct answer is: " + randomNumber);
+        System.out.println("The answer is: " + randomNumber);
         System.out.println("See you next time");
     }
 

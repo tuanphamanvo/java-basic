@@ -44,7 +44,7 @@ public class HomeWorkDay3 {
     private static void greetingName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
-        String enteredName = scanner.toString();
+        String enteredName = scanner.nextLine();
         System.out.println("Hello " + enteredName);
     }
 

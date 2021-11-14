@@ -1,6 +1,6 @@
 package lesson4;
 
-import java.util.Objects;
+import java.util.Scanner;
 
 public class HomeWorkDay4 {
     public static void main(String[] args) {
@@ -9,36 +9,37 @@ public class HomeWorkDay4 {
         Please calculate how many minutes in total
         */
 
-//        String time = "2hrs and 5 minutes";
-//        String [] tempString = time.split("hrs and | hr and");
-//        int hour = Integer.parseInt(tempString[0]);
-//        String [] tempMinute = tempString[1].split("minutes | minute");
-//        int minute = Integer.parseInt(tempMinute[0]);
-//        int hourInMinute = hour*60;
-//        System.out.println("There are "+ (minute + hourInMinute) + " minutes");
+        String time = "2hrs and 5 minutes";
+        String [] tempString = time.split("hrs and | hr and");
+        int hour = Integer.parseInt(tempString[0]);
+        String [] tempMinute = tempString[1].split("minutes | minute");
+        int minute = Integer.parseInt(tempMinute[0]);
+        int hourInMinute = hour*60;
+        System.out.println("There are "+ (minute + hourInMinute) + " minutes");
 
         /*Exercise 02
         String myPassword = "password123";
         Allow user to input maximum 3 times
         */
 
-//        String myPassword = "password123";
-//        String inputPassword = "";
-//        Scanner scanner = new Scanner(System.in);
-//        int attempt = 0;
-//        while (!inputPassword.equals(myPassword)){
-//            if (attempt==3){
-//                System.out.println("You exceeded max try time, goodbye!!");
-//                break;
-//            }
-//            System.out.println("Input your password:");
-//            inputPassword = scanner.nextLine();
-//            attempt++;
-//            if (inputPassword.equals(myPassword)){
-//                System.out.println("Correct password, Welcome to the system!!");
-//                break;
-//            } else System.out.println("You input incorrect password!!");
-//        }
+        String myPassword = "password123";
+        String inputPassword = "";
+        Scanner scanner = new Scanner(System.in);
+        int maxAttempts = 3;
+        int attempt = 0;
+        while (!inputPassword.equals(myPassword)){
+            if (attempt==3){
+                System.out.println("You exceeded max try time, goodbye!!");
+                break;
+            }
+            System.out.println("Input your password:");
+            inputPassword = scanner.nextLine();
+            attempt++;
+            if (inputPassword.equals(myPassword)){
+                System.out.println("Correct password, Welcome to the system!!");
+                break;
+            } else System.out.println("You input incorrect password!!, You have " + (maxAttempts-attempt)+" more chance(s)");
+        }
 
 
         /*Exercise 03

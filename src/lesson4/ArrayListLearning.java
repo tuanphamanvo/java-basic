@@ -1,44 +1,67 @@
 package lesson4;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class ArrayListLearning {
     public static void main(String[] args) {
         //Declaration
-//        ArrayList myArrayList = new ArrayList();
-        ArrayList<Integer> myIntArrayList = new ArrayList<Integer>();
-//        ArrayList<Integer> wrongDeclare = Arrays.asList(1,2,3,4,5);
-        ArrayList<Integer> myFixedArrayList = new ArrayList<Integer>(Arrays.asList(1,2,3,4)); //Khong the them moi, remove. Chi co the update
+        ArrayList myArrListWithoutValues = new ArrayList();
+        ArrayList<Integer> myArrListWithDataType = new ArrayList<>();
+        ArrayList myArrListWithValues = new ArrayList(Arrays.asList("123", 1234, "bmc",1));
+        System.out.println(myArrListWithValues);
 
-        //Add
-        myIntArrayList.add(1); //Index 0
-        myIntArrayList.add(2); //Index 1
-        myIntArrayList.add(3); //Index 2
+        //Add values to ArrayList
+        ArrayList<Integer> myIntArrayList = new ArrayList<>();
+        myIntArrayList.add(12);
+        myIntArrayList.add(99);
+        myIntArrayList.add(47);
+        myIntArrayList.add(48);
+        myIntArrayList.add(46);
+        myIntArrayList.add(34);
+        myIntArrayList.add(21);
+        myIntArrayList.add(87);
+        myIntArrayList.add(1);
+        myIntArrayList.add(9);
 
-        //Read - Get
-        System.out.println(myIntArrayList.get(1)); //get(index)
+        //Get ArrayList value
+        System.out.println(myIntArrayList.get(0));
 
-        //ArrayList size
-        System.out.println(myIntArrayList.size());
-        for(int s : myIntArrayList) {
-            System.out.println(s);
+        //Sort ArrayList
+        ArrayList<Integer> sortedArrList = myIntArrayList;
+        sortedArrList.add(18);
+        Collections.sort(sortedArrList);
+        System.out.println(sortedArrList);
+
+        //Remove an element by index
+        System.out.println(myIntArrayList);
+        myIntArrayList.remove(4);
+        System.out.println(myIntArrayList);
+
+        //Remove an element by value
+        myIntArrayList.remove((Integer) 99);
+        System.out.println(myIntArrayList);
+        myArrListWithValues.remove(1);
+        myArrListWithValues.remove("bmc");
+        System.out.println(myArrListWithValues);
+
+        //Remove an Integer value
+        myIntArrayList.removeAll(Arrays.asList(1,18));
+        System.out.println(myIntArrayList);
+        myIntArrayList.remove(myIntArrayList.indexOf(34)); //Cách này rất ngu
+        System.out.println(myIntArrayList);
+        myIntArrayList.remove((Integer) 48);
+
+        //Remove duplicated value
+        ArrayList myOriginalArrList = new ArrayList(Arrays.asList(123,"bmc", 2323, "bmc","pocolo",123));
+        ArrayList resultList = new ArrayList();
+        for(int s = 0; s < myOriginalArrList.size(); s++){
+            if(s==0){
+                resultList.add(myOriginalArrList.get(0));
+            } else if(!resultList.contains(myOriginalArrList.get(s))){
+                resultList.add(myOriginalArrList.get(s));
+            }
         }
-
-        for(int elementIndex = 0; elementIndex < myIntArrayList.size(); elementIndex++) {
-            System.out.println(myIntArrayList.get(elementIndex));
-        }
-
-        //Set
-        myIntArrayList.set(myIntArrayList.size()-1, 10);
-        for(int s : myIntArrayList) {
-            System.out.println(s);
-        }
-
-        //Delete/remove
-        myIntArrayList.remove(myIntArrayList.size()-1);
-        for(int s : myIntArrayList) {
-            System.out.println(s);
-        }
+        System.out.println(resultList);
     }
+
 }

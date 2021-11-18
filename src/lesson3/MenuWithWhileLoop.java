@@ -12,7 +12,6 @@ public class MenuWithWhileLoop {
         * */
         boolean keepPlaying = true;
         int failedAttemp = 0;
-
 ///Homework: Switch while(keepPlaying) to do while/switch case
         while(keepPlaying) {
             if(failedAttemp == 3) {

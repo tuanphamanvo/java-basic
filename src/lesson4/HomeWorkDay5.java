@@ -8,6 +8,7 @@ public class HomeWorkDay5 {
     public static void main(String[] args) {
         HashMap<Integer, String> attendeeList = listAttendance();
         HashMap<Integer, String> appearList = rollUp();
+        HashMap<Integer, String> randomPersonList = appearList;
         System.out.println("Appear today: " + appearList);
         HashMap<Integer, String> absentList = getAbsentList(attendeeList, appearList);
         System.out.println("Absent today: " + absentList);
@@ -23,13 +24,13 @@ public class HomeWorkDay5 {
             int chosenOption = scanner.nextInt();
             switch (chosenOption) {
                 case (1):
-                    addToAppearList(appearList,absentList);
+                    addToAppearList(appearList,absentList, randomPersonList);
                     break;
                 case (2):
-                    addToAbsentList(appearList, absentList);
+                    addToAbsentList(appearList, absentList,randomPersonList);
                     break;
                 case (3):
-                    pickRandomlyAPerson(appearList);
+                    pickRandomlyAPerson(randomPersonList,appearList);
                     break;
                 case (4):
                     System.out.println("Good bye!!!");
@@ -44,32 +45,39 @@ public class HomeWorkDay5 {
 
         }
 
-    private static String pickRandomlyAPerson(HashMap<Integer, String> appearList) {
-        int size = appearList.size()-1;
+    private static String pickRandomlyAPerson(HashMap<Integer, String> randomPersonList, HashMap<Integer, String> appearList) {
+        if(randomPersonList.size()==0){
+            randomPersonList=appearList;
+        }
+        int size = randomPersonList.size();
         int randomNumber = new Random().nextInt(size);
-        String name  = appearList.get(randomNumber);
+        String name  = randomPersonList.get(randomNumber);
+        randomPersonList.remove(randomNumber);
         System.out.println(name+" please!");
         return (name);
     }
 
 
-    private static HashMap<Integer, String> addToAbsentList(HashMap<Integer, String> appearList, HashMap<Integer, String> absentList) {
+    private static HashMap<Integer, String> addToAbsentList(HashMap<Integer, String> appearList, HashMap<Integer, String> absentList, HashMap<Integer, String> randomPersonList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(appearList);
         System.out.println("Above is appearList, enter attendee number to add to absentList then press Enter:");
         int chosenInt = scanner.nextInt();
         absentList.put(chosenInt, appearList.get(chosenInt));
         appearList.remove(chosenInt);
+        randomPersonList.remove(chosenInt);
+
         return (absentList);
     }
 
-    private static HashMap<Integer, String> addToAppearList(HashMap<Integer, String> appearList, HashMap<Integer, String> absentList) {
+    private static HashMap<Integer, String> addToAppearList(HashMap<Integer, String> appearList, HashMap<Integer, String> absentList, HashMap<Integer,String> randomPersonList) {
         Scanner scanner = new Scanner(System.in);
         System.out.println(absentList);
         System.out.println("There is absentList, enter attendee number to add to appearList then press Enter:");
         int chosenInt = scanner.nextInt();
         appearList.put(chosenInt, absentList.get(chosenInt));
         absentList.remove(chosenInt);
+        randomPersonList.put(chosenInt, absentList.get(chosenInt));
         return (appearList);
     }
 
@@ -97,7 +105,6 @@ public class HomeWorkDay5 {
 
     private static HashMap<Integer, String> getAbsentList(HashMap<Integer,String> attendeeList, HashMap<Integer,String> appearList) {
         HashMap<Integer, String> absentList = new HashMap<>();
-//        HashMap<Integer, String> rollUp1 = rollUp();
         for(Integer key : attendeeList.keySet()){
             if(!appearList.containsValue(attendeeList.get(key))){
                 absentList.put(key, attendeeList.get(key));
@@ -111,15 +118,15 @@ public class HomeWorkDay5 {
         listAtten.put(1,"Tuan Pham-Le");
         listAtten.put(2,"Pham Thuy Bich Uyen");
         listAtten.put(3,"Nguyen Thi Yen");
-        listAtten.put(4,"Dieu Ai Le");
-        listAtten.put(5,"Nhu Le");
-        listAtten.put(6,"Dao Thuy Quyen");
-        listAtten.put(7,"Nguyen Thi Van Anh");
-        listAtten.put(8,"Tran Dang Bao");
-        listAtten.put(9,"Thanh Nguyen");
-        listAtten.put(10,"Mi Nguyen");
-        listAtten.put(11,"Vo Hong Phuong");
-        listAtten.put(12,"Tran Quoc Hoang");
+//        listAtten.put(4,"Dieu Ai Le");
+//        listAtten.put(5,"Nhu Le");
+//        listAtten.put(6,"Dao Thuy Quyen");
+//        listAtten.put(7,"Nguyen Thi Van Anh");
+//        listAtten.put(8,"Tran Dang Bao");
+//        listAtten.put(9,"Thanh Nguyen");
+//        listAtten.put(10,"Mi Nguyen");
+//        listAtten.put(11,"Vo Hong Phuong");
+//        listAtten.put(12,"Tran Quoc Hoang");
         return (listAtten);
     }
 }

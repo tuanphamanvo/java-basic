@@ -1,8 +1,6 @@
 package lesson4;
 
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class HomeWorkDay5 {
     public static void main(String[] args) {
@@ -49,10 +47,10 @@ public class HomeWorkDay5 {
         if(randomPersonList.size()==0){
             randomPersonList=appearList;
         }
-        int size = randomPersonList.size();
-        int randomNumber = new Random().nextInt(size);
+        List<Integer> listKey = new ArrayList<>(randomPersonList.keySet());
+        int randomIndex = new Random().nextInt(listKey.size());
+        int randomNumber = listKey.get(randomIndex);
         String name  = randomPersonList.get(randomNumber);
-        randomPersonList.remove(randomNumber);
         System.out.println(name+" please!");
         return (name);
     }

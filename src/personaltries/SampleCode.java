@@ -2,10 +2,11 @@ package personaltries;
 
 import java.util.*;
 
-public class SampleCode {public static void main(String[] args) {
+public class SampleCode {
+    public static void main(String[] args) {
     HashMap<Integer, String> attendeeList = listAttendance();
     HashMap<Integer, String> appearList = rollUp();
-    HashMap<Integer, String> randomPersonList = appearList;
+    HashMap<Integer, String> randomPersonList= new HashMap<>(appearList);;
     HashMap<Integer, String> absentList = getAbsentList(attendeeList, appearList);
     Scanner scanner = new Scanner(System.in);
     boolean keepPlaying = true;
@@ -42,7 +43,7 @@ public class SampleCode {public static void main(String[] args) {
 
     private static String pickRandomlyAPerson(HashMap<Integer, String> randomPersonList, HashMap<Integer, String> appearList) {
         if(randomPersonList.size()==0){
-            randomPersonList=appearList;
+            randomPersonList= new HashMap<>(appearList);
         }
         List<Integer> listKey = new ArrayList<>(randomPersonList.keySet());
         int randomIndex = new Random().nextInt(listKey.size());
@@ -50,7 +51,6 @@ public class SampleCode {public static void main(String[] args) {
         String name  = randomPersonList.get(randomNumber);
         randomPersonList.remove(randomNumber);
         System.out.println(name+" please!");
-        System.out.println(randomPersonList);
         return (name);
     }
 

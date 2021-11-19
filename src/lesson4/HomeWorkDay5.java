@@ -6,10 +6,8 @@ public class HomeWorkDay5 {
     public static void main(String[] args) {
         HashMap<Integer, String> attendeeList = listAttendance();
         HashMap<Integer, String> appearList = rollUp();
-        HashMap<Integer, String> randomPersonList = appearList;
-        System.out.println("Appear today: " + appearList);
+        HashMap<Integer, String> randomPersonList= new HashMap<>(appearList);;
         HashMap<Integer, String> absentList = getAbsentList(attendeeList, appearList);
-        System.out.println("Absent today: " + absentList);
         Scanner scanner = new Scanner(System.in);
         boolean keepPlaying = true;
         while (keepPlaying) {
@@ -41,16 +39,17 @@ public class HomeWorkDay5 {
             }
         }
 
-        }
+    }
 
     private static String pickRandomlyAPerson(HashMap<Integer, String> randomPersonList, HashMap<Integer, String> appearList) {
         if(randomPersonList.size()==0){
-            randomPersonList=appearList;
+            randomPersonList= new HashMap<>(appearList);
         }
         List<Integer> listKey = new ArrayList<>(randomPersonList.keySet());
         int randomIndex = new Random().nextInt(listKey.size());
         int randomNumber = listKey.get(randomIndex);
         String name  = randomPersonList.get(randomNumber);
+        randomPersonList.remove(randomNumber);
         System.out.println(name+" please!");
         return (name);
     }
@@ -116,15 +115,15 @@ public class HomeWorkDay5 {
         listAtten.put(1,"Tuan Pham-Le");
         listAtten.put(2,"Pham Thuy Bich Uyen");
         listAtten.put(3,"Nguyen Thi Yen");
-//        listAtten.put(4,"Dieu Ai Le");
-//        listAtten.put(5,"Nhu Le");
-//        listAtten.put(6,"Dao Thuy Quyen");
-//        listAtten.put(7,"Nguyen Thi Van Anh");
-//        listAtten.put(8,"Tran Dang Bao");
-//        listAtten.put(9,"Thanh Nguyen");
-//        listAtten.put(10,"Mi Nguyen");
-//        listAtten.put(11,"Vo Hong Phuong");
-//        listAtten.put(12,"Tran Quoc Hoang");
+        listAtten.put(4,"Dieu Ai Le");
+        listAtten.put(5,"Nhu Le");
+        listAtten.put(6,"Dao Thuy Quyen");
+        listAtten.put(7,"Nguyen Thi Van Anh");
+        listAtten.put(8,"Tran Dang Bao");
+        listAtten.put(9,"Thanh Nguyen");
+        listAtten.put(10,"Mi Nguyen");
+        listAtten.put(11,"Vo Hong Phuong");
+        listAtten.put(12,"Tran Quoc Hoang");
         return (listAtten);
     }
 }

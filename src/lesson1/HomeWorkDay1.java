@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class HomeWorkDay1 {
     public static void main(String[] args) {
-        int yearOfBirth = 1991;
+        int yearOfBirth = 1990;
         String name = "Tuan Pham-Le";
         float mathAvg = 5.5F;
         float literatureAvg = 4.9F;

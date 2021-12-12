@@ -8,15 +8,15 @@ public class Animal {
 
     public Animal(int maxSpeed){
         this.maxSpeed = maxSpeed;
-        this.speed = getSpeed(maxSpeed);
+        this.speed = getSpeed();
+        int range = this.maxSpeed + 1;
+        this.speed = new SecureRandom().nextInt(range);
     }
     protected String getAnimalName(){
         String name = getClass().getSimpleName();
         return name;
     }
-    protected int getSpeed(int maxSpeed){
-        int range = this.maxSpeed + 1;
-        this.speed = new SecureRandom().nextInt(range);
+    protected int getSpeed(){
         return speed;
     }
 }

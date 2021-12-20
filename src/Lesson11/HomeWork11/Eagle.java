@@ -7,6 +7,6 @@ public class Eagle extends Animal {
 
     @Override
     protected boolean isFlyable() {
-        return false;
+        return true;
     }
 }

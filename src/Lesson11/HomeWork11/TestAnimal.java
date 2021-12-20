@@ -5,19 +5,19 @@ import java.util.List;
 
 public class TestAnimal {
     public static Animal animalRacing(List<Animal> animalList) {
-        Animal winnerAnimal = null;
+        Animal winner = null;
         for (Animal animal : animalList) {
             if (!animal.isFlyable()) {
-                if (winnerAnimal == null) {
-                    winnerAnimal = animal;
+                if (winner == null) {
+                    winner = animal;
                 } else {
-                    if (animal.getSpeed() > winnerAnimal.getSpeed()) {
-                        winnerAnimal = animal;
+                    if (animal.getSpeed() > winner.getSpeed()) {
+                        winner = animal;
                     }
                 }
             }
         }
-        return winnerAnimal;
+        return winner;
     }
     public static void main(String[] args) {
         final int HORSE_MAX_SPEED = 75;

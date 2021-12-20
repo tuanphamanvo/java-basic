@@ -1,4 +1,4 @@
-package Lession11;
+package Lesson11;
 
 public class ExternalLoginPage extends LoginPage{
     @Override

@@ -1,14 +1,14 @@
-package lesson13.WorkingWithFile;
+package lesson13.HomeWork13;
 
 public class Book {
     private String ISBN;
-    private String title;
+    private String bookTitle;
     private String authorName;
     private int year;
 
-    public Book(String ISBN, String title, String authorName, int year) {
+    public Book(String ISBN, String bookTitle, String authorName, int year) {
         this.ISBN = ISBN;
-        this.title = title;
+        this.bookTitle = bookTitle;
         this.authorName = authorName;
         this.year = year;
     }
@@ -21,12 +21,12 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public String getTitle() {
-        return title;
+    public String getBookTitle() {
+        return bookTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
     }
 
     public String getAuthorName() {
@@ -47,10 +47,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book details:\n" +
-                "ISBN='" + ISBN + '\n' +
-                "title='" + title + '\n' +
-                "authorName='" + authorName + '\n' +
-                "year=" + year;
+        return "Book details: " +
+                "ISBN='" + ISBN + '\'' +
+                ", bookTitle='" + bookTitle + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", year=" + year;
     }
 }

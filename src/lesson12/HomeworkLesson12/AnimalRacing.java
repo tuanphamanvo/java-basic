@@ -13,17 +13,23 @@ public class AnimalRacing {
 
         Animal horse = new Horse(HORSE_MAX_SPEED);
         Animal tiger = new Tiger(TIGER_MAX_SPEED);
-        FlyAbility eagle = new Eagle(EAGLE_MAX_SPEED);
+        Animal eagle = new Eagle(EAGLE_MAX_SPEED);
         Animal dog = new Dog(DOG_MAX_SPEED);
-        FlyAbility falcon = new Falcon(FALCON_MAX_SPEED);
-        List<FlyAbility> animalList = Arrays.asList(eagle, falcon);
+        Animal falcon = new Falcon(FALCON_MAX_SPEED);
+        List<Animal> animalList = Arrays.asList(horse, tiger, dog, eagle, falcon);
         findTheWinner(animalList);
 //        System.out.println("The winner is " + winner.getAnimalName() + " with the speed " + winner.getSpeed());
     }
 
-    private static void findTheWinner(List<FlyAbility> flyAbilityList) {
-        for(FlyAbility animal: flyAbilityList){
-            System.out.println(animal.getClass().getSimpleName());
+    private static void findTheWinner(List<Animal> animalList) {
+        int winnerSpeed = 0;
+        String winnerName = "";
+        for(Animal animal: animalList){
+            if(animal.isFlyAble() && animal.getSpeed()>=winnerSpeed){
+                winnerSpeed = animal.getSpeed();
+                winnerName = animal.getAnimalName();
+            }
         }
+        System.out.println("The winner is " + winnerName + " with the race speed "+ winnerSpeed);
     }
 }

@@ -1,6 +1,6 @@
 package lesson12.HomeworkLesson12;
 
-public interface FlyAbility {
+public interface FlyAble {
     boolean flyAble();
 
 }

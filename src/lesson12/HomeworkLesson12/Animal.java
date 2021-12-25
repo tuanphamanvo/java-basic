@@ -4,16 +4,12 @@ package lesson12.HomeworkLesson12;
 import java.security.SecureRandom;
 
 public abstract class Animal {
-    FlyAbility flyAbility;
-
+    FlyAble flyAble;
     public String name;
     private int speed;
 
     public Animal(int maxSpeed) {
         this.speed = new SecureRandom().nextInt(maxSpeed+1);
-    }
-
-    public Animal() {
     }
 
     protected int getSpeed(){
@@ -23,6 +19,9 @@ public abstract class Animal {
     protected String getAnimalName(){
         String name = getClass().getSimpleName();
         return name;
+    }
+    public boolean isFlyAble(){
+        return flyAble.flyAble();
     }
 
 }

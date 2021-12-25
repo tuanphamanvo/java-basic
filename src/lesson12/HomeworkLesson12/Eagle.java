@@ -1,13 +1,8 @@
 package lesson12.HomeworkLesson12;
 
-public class Eagle extends Animal implements FlyAbility{
+public class Eagle extends Animal {
     public Eagle(int maxSpeed) {
         super(maxSpeed);
-        flyAbility = new CanFly();
-    }
-
-    @Override
-    public boolean flyAble() {
-        return true;
+        flyAble = new CanFly();
     }
 }

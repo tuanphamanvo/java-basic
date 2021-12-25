@@ -1,6 +1,6 @@
 package lesson12.HomeworkLesson12;
 
-public class CanFly implements FlyAbility{
+public class CanFly implements FlyAble {
 
     @Override
     public boolean flyAble() {
